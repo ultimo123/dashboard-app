@@ -22,9 +22,10 @@ import {
   Pyramid,
   Stacked,
 } from "./pages"
+import { useStateContext } from "./context/ContextProvider"
 
 function App() {
-  const [activeMenu, setActiveMenu] = useState(false)
+  const { activeMenu, setActiveMenu } = useStateContext()
 
   return (
     <div className=''>
@@ -39,6 +40,9 @@ function App() {
                   background: "blue",
                   borderRadius: "50%",
                 }}
+                onClick={() =>
+                  setActiveMenu((prevActiveMenu) => !prevActiveMenu)
+                }
               >
                 <FiSettings />
               </button>
